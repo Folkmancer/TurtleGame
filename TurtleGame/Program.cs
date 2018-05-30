@@ -16,12 +16,14 @@ namespace TurtleGame
             Turtle.PenUp();
             var eat = Shapes.AddRectangle(10, 10);
             Shapes.Move(eat, X, Y);
+            Random rand = new Random();
             while (true)
             {
                 Turtle.Move(10);
                 if ((Turtle.X >= X && Turtle.X <= X + 10) && (Turtle.Y >= Y && Turtle.Y <= Y + 10))
                 {
-                    X += 20;
+                    X = rand.Next(0, GraphicsWindow.Width);
+                    Y = rand.Next(0, GraphicsWindow.Height);
                     Shapes.Move(eat, X, Y);
                 }
             }
