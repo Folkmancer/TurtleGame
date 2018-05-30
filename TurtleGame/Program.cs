@@ -11,13 +11,19 @@ namespace TurtleGame
     {
         static void Main(string[] args)
         {
+            int X = 200, Y = 200;
             GraphicsWindow.KeyDown += GraphicsWindow_KeyDown;
             Turtle.PenUp();
             var eat = Shapes.AddRectangle(10, 10);
-            Shapes.Move(eat, 200, 200);
+            Shapes.Move(eat, X, Y);
             while (true)
             {
                 Turtle.Move(10);
+                if ((Turtle.X >= X && Turtle.X <= X + 10) && (Turtle.Y >= Y && Turtle.Y <= Y + 10))
+                {
+                    X += 20;
+                    Shapes.Move(eat, X, Y);
+                }
             }
         }
 
